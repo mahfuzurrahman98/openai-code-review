@@ -1,9 +1,9 @@
 // import { config } from 'dotenv';
-import Express from 'express';
-import reviewCode from './openai.js';
+const express = require('express');
+const reviewCode = require('./openai');
 
 // config();
-const app = new Express();
+const app = express();
 
 app.use(Express.json());
 

@@ -1,7 +1,8 @@
-import { config } from 'dotenv';
-import OpenAI from 'openai';
+// import { config } from 'dotenv';
+// import OpenAI from 'openai';
+const OpenAI = require('openai').default;
 
-config();
+// config();
 const apiKey = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({
@@ -9,7 +10,7 @@ const openai = new OpenAI({
   model: 'gpt-3.5-turbo',
 });
 
-export default async function reviewCode(sourceCode) {
+async function reviewCode(sourceCode) {
   console.log(sourceCode);
   try {
     // Create a list to store all the messages for context
@@ -44,3 +45,5 @@ export default async function reviewCode(sourceCode) {
     throw error;
   }
 }
+
+module.exports = reviewCode;
