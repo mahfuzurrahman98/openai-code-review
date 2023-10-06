@@ -5,7 +5,7 @@ const reviewCode = require('./openai');
 // config();
 const app = express();
 
-app.use(Express.json());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
