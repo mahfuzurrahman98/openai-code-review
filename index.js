@@ -31,4 +31,6 @@ app.post('/review-code', async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000);
+const server = app.listen(process.env.PORT || 3000);
+server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;
