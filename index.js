@@ -1,6 +1,8 @@
+// import { config } from 'dotenv';
 import Express from 'express';
 import reviewCode from './openai.js';
 
+// config();
 const app = new Express();
 
 app.use(Express.json());
@@ -12,15 +14,14 @@ app.get('/', (req, res) => {
 app.post('/review-code', async (req, res) => {
   // Get the source code from the request body
   const sourceCode = req.body.source_code;
+  // res.send({ sourceCode });
 
   // Call the reviewCode function with your source code
   try {
     const response = await reviewCode(sourceCode);
-    const responsJson = res.json({ response });
-    // console.log(responsJson);
     res.send({
       message: 'Code review completed successfully',
-      data: responsJson,
+      data: response,
     });
   } catch (error) {
     res.status(error.status || 500).send({

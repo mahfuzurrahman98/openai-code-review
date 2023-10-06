@@ -1,9 +1,11 @@
+import { config } from 'dotenv';
 import OpenAI from 'openai';
 
+config();
 const apiKey = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey,
   model: 'gpt-3.5-turbo',
 });
 
