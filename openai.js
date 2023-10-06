@@ -6,7 +6,7 @@ const OpenAI = require('openai').default;
 const apiKey = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: apiKey,
   model: 'gpt-3.5-turbo',
 });
 
